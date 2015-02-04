@@ -7,6 +7,7 @@ public class Room {
 
     String roomType = null;
     double roomPriceBase = 0.0;
+    boolean vacant = true;
 
     public Room(String roomType, double roomPriceBase) {
         this.roomType = roomType;
@@ -29,5 +30,13 @@ public class Room {
 
     public void setRoomPriceBase(double roomPriceBase) {
         this.roomPriceBase = roomPriceBase;
+    }
+
+    public boolean isVacant() {
+        return vacant;
+    }
+
+    public void setVacant(boolean vacant) {
+        this.vacant = vacant;
     }
 }

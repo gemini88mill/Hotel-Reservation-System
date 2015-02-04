@@ -7,6 +7,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Scanner;
 
 public class Main {
 
@@ -23,7 +24,24 @@ public class Main {
         System.out.println("entering guest...");
         addGuest();
 
+        System.out.println("Accept? (y/n)");
+        String userInput = userInput();
+        selection(userInput.toUpperCase());
 
+
+    }
+
+    private static void selection(String userInput) {
+        if (userInput == "Y"){
+            //....
+        } else if (userInput == "N") {
+            System.exit(1);
+        }
+    }
+
+    private static String userInput(){
+        Scanner scan = new Scanner(System.in);
+        return scan.nextLine();
     }
 
     private static void buildHotel(){
@@ -31,7 +49,7 @@ public class Main {
         Calendar cal = Calendar.getInstance();
         Date currentDate = cal.getTime();
 
-        System.out.println("Today is:" + cal.getTime());
+        System.out.println("Today is: " + currentDate);
 
         //for (int x = 0; x < hotel.getRoom().length; x++) {
           //  System.out.println(hotel.room[x].getRoomPriceBase() + "\t" + hotel.room[x].getRoomType());

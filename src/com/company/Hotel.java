@@ -34,16 +34,13 @@ public class Hotel {
 
         for (int x = 0; x < length; x++){
             roomType[x] = rooms[x].getRoomType();
-            if (choice == roomType[x]){
+            if (choice == roomType[x] && rooms[x].isVacant() == true){
                 System.out.println("found room... ");
                 return rooms[x];
             }
         }
 
-        System.out.println(roomType.length);
-
-
-
+        System.out.println("room not found");
         return room[0];
     }
 
