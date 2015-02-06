@@ -10,7 +10,7 @@ public class Hotel {
 
     Room[] room = null;
     Guest[] guest = null;
-    int floor = 0;
+    int roomNum = 0;
 
     //---------------------------------------------------------------
     public Hotel() {
@@ -31,11 +31,13 @@ public class Hotel {
         int length = Main.hotel.room.length;
         String choice = guest.getRoomChoice();
         String[] roomType = new String[10];
+        int x;
 
-        for (int x = 0; x < length; x++){
+        for (x = 0; x < length; x++){
             roomType[x] = rooms[x].getRoomType();
             if (choice == roomType[x] && rooms[x].isVacant() == true){
-                System.out.println("found room... ");
+                System.out.println("found room... " + x);
+                setRoomNum(x);
                 return rooms[x];
             }
         }
@@ -58,5 +60,13 @@ public class Hotel {
 
     public void setGuest(Guest[] guest) {
         this.guest = guest;
+    }
+
+    public int getRoomNum() {
+        return roomNum;
+    }
+
+    public void setRoomNum(int roomNum) {
+        this.roomNum = roomNum;
     }
 }

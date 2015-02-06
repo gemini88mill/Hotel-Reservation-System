@@ -60,4 +60,8 @@ public class Guest {
     public void setRoomChoice(String roomChoice) {
         this.roomChoice = roomChoice;
     }
+
+    public String toString(){
+        return getFirstName() + "\t" + getLastName();
+    }
 }

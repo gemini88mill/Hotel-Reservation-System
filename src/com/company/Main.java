@@ -24,17 +24,18 @@ public class Main {
         System.out.println("entering guest...");
         addGuest();
 
-        System.out.println("Accept? (y/n)");
-        String userInput = userInput();
-        selection(userInput.toUpperCase());
+
 
 
     }
 
-    private static void selection(String userInput) {
-        if (userInput == "Y"){
-            //....
-        } else if (userInput == "N") {
+    private static void selection(String userInput, Guest guest, int x) {
+        if (userInput.equals("Y")){
+            hotel.room[x].setVacant(false);
+            hotel.room[x].setOccupiedBy(guest);
+            System.out.println(hotel.room[x].toString());
+
+        } else if (userInput.equals("N")) {
             System.exit(1);
         }
     }
@@ -58,14 +59,22 @@ public class Main {
 
     private static void addGuest(){
         SimpleDateFormat sdf = new SimpleDateFormat("DD/MM/yyyy");
-        Guest guest;
+        Guest guest = null;
+        Room room;
+        Room[] rooms = hotel.room;
+        int count = 0;
+
         try {
             guest = new Guest("Raphael", "Miller", sdf.parse("02/02/2015"), sdf.parse("02/03/2015"), "suite");
-            Room room = hotel.locateRoom(guest, hotel.room);
+            room = hotel.locateRoom(guest, rooms);
             System.out.println(room.getRoomPriceBase() + "\t" + room.getRoomType());
         } catch (ParseException e) {
             e.printStackTrace();
         }
+
+        System.out.println("Accept? (y/n)");
+        String userInput = userInput();
+        selection(userInput.toUpperCase(), guest, hotel.getRoomNum());
     }
 
     public Main(Hotel hotel) {

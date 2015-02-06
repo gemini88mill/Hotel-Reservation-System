@@ -8,6 +8,7 @@ public class Room {
     String roomType = null;
     double roomPriceBase = 0.0;
     boolean vacant = true;
+    Guest occupiedBy = null;
 
     public Room(String roomType, double roomPriceBase) {
         this.roomType = roomType;
@@ -38,5 +39,17 @@ public class Room {
 
     public void setVacant(boolean vacant) {
         this.vacant = vacant;
+    }
+
+    public Guest getOccupiedBy() {
+        return occupiedBy;
+    }
+
+    public void setOccupiedBy(Guest occupiedBy) {
+        this.occupiedBy = occupiedBy;
+    }
+
+    public String toString(){
+        return getRoomType() + "\t" + getOccupiedBy().toString() + "\t" + getRoomPriceBase() + "\t";
     }
 }
